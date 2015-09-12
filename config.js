@@ -1,5 +1,7 @@
 module.exports = {
-  "database": "mongodb://root:123hufts@ds049868.mongolab.com:49868/thehufts",
-  "port": process.env.PORT || 3000,
-  "secretKey": "NomNomNam"
+
+	"database": "mongodb://root:abc123@ds045031.mongolab.com:45031/userstory",
+	"port": process.env.PORT || 3000,
+	"secretKey": "YourSecretKey"
+
 }
