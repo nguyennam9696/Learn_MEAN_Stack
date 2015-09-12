@@ -11,6 +11,8 @@ var UserSchema = new Schema({
   password: { type: String, required: true, select: false }
 });
 
+// Pre allows you to save the password
+// bcrypt to hash the password
 UserSchema.pre('save', function(next) {
 
   var user = this;
@@ -24,5 +26,13 @@ UserSchema.pre('save', function(next) {
     next();
   });
 });
+
+// Comparing && verifying passwords
+UserSchema.methods.comparePassword = function(password) {
+
+  var user = this;
+
+  return bcrypt.compareSync(password, user.password);
+}
 
 module.exports = mongoose.model('User', UserSchema);
